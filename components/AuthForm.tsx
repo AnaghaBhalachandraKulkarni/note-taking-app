@@ -16,6 +16,8 @@ export default function AuthForm() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const host =
+    typeof window !== "undefined" ? window.location.host : "(unknown host)";
 
   const title = useMemo(() => {
     if (mode === "sign_up") return "Create account";
@@ -39,7 +41,25 @@ export default function AuthForm() {
         await signInWithEmail(email, password);
       }
     } catch (err: any) {
-      setError(err?.message ?? "Authentication failed.");
+      const code = err?.code as string | undefined;
+      if (code === "auth/unauthorized-domain") {
+        setError(
+          `Firebase blocked auth from this domain (${host}). ` +
+            `Fix: Firebase Console → Authentication → Settings → Authorized domains → Add domain: ${host}`
+        );
+      } else if (code === "auth/operation-not-allowed") {
+        setError(
+          "Email/Password sign-in is disabled for this Firebase project. " +
+            "Fix: Firebase Console → Authentication → Sign-in method → Email/Password → Enable."
+        );
+      } else if (code === "auth/configuration-not-found") {
+        setError(
+          "Firebase Auth isn't fully configured for this project. " +
+            "Fix: Firebase Console → Authentication → Get started, then enable Email/Password."
+        );
+      } else {
+        setError(err?.message ?? "Authentication failed.");
+      }
     } finally {
       setBusy(false);
     }
@@ -114,4 +134,3 @@ export default function AuthForm() {
     </div>
   );
 }
-

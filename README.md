@@ -15,6 +15,12 @@ A production-ready cloud-based note-taking application built with Next.js (App R
 3. Install dependencies: `npm install`
 4. Run the app: `npm run dev` (opens on `http://localhost:3000`)
 
+### GitHub Codespaces note (required for Firebase Auth)
+If you're running this inside GitHub Codespaces, Firebase Auth will throw `auth/unauthorized-domain` until you add your forwarded port domain to:
+Authentication → Settings → Authorized domains.
+
+The Codespaces URL looks like `https://<CODESPACE>-3000.app.github.dev/`, so you must add `<CODESPACE>-3000.app.github.dev`.
+
 ### Firestore rules
 Deploy these rules to your Firebase project (or use them in the emulator): `firestore.rules`.
 
