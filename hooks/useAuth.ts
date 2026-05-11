@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { subscribeToAuth } from "@/services/authService";
+import { subscribeToAuth } from "../services/authService";
 import { User } from "firebase/auth";
 
 export const useAuth = () => {

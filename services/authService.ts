@@ -1,4 +1,4 @@
-import { auth, provider } from "@/lib/firebase";
+import { auth, provider } from "../lib/firebase";
 import {
   signInWithPopup,
   signInAnonymously,

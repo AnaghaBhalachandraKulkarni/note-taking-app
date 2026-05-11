@@ -1,6 +1,6 @@
 "use client";
 
-import GoogleSignInButton from "@/components/GoogleSignInButton";
+import GoogleSignInButton from "../../components/GoogleSignInButton";
 
 export default function AuthPage() {
   return (

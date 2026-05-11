@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { watchNotes } from "@/services/notesService";
+import { watchNotes } from "../services/notesService";
 
 export const useNotes = (uid: string) => {
   const [notes, setNotes] = useState<any[]>([]);

@@ -1,9 +1,9 @@
 "use client";
 
-import { deleteNote } from "@/services/notesService";
+import { deleteNote } from "../services/notesService";
 import { useState } from "react";
 import NoteEditor from "./NoteEditor";
-import { formatDate } from "@/utils/formatDate";
+import { formatDate } from "../utils/formatDate";
 
 export default function NoteCard({ note, uid }: any) {
   const [editing, setEditing] = useState(false);

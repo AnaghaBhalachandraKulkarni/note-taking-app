@@ -1,6 +1,6 @@
 "use client";
 
-import { loginWithGoogle } from "@/services/authService";
+import { loginWithGoogle } from "../services/authService";
 
 export default function GoogleSignInButton() {
   const usingEmulators =

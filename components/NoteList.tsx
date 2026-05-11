@@ -1,7 +1,7 @@
 "use client";
 
-import { createNote } from "@/services/notesService";
-import { useNotes } from "@/hooks/useNotes";
+import { createNote } from "../services/notesService";
+import { useNotes } from "../hooks/useNotes";
 import NoteCard from "./NoteCard";
 
 export default function NoteList({ uid }: any) {

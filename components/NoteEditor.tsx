@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { updateNote } from "@/services/notesService";
+import { updateNote } from "../services/notesService";
 
 export default function NoteEditor({ note, uid }: any) {
   const [title, setTitle] = useState(note.title);

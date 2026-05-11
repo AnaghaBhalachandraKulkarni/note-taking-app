@@ -1,7 +1,7 @@
 "use client";
 
-import { useAuth } from "@/hooks/useAuth";
-import NoteList from "@/components/NoteList";
+import { useAuth } from "../../hooks/useAuth";
+import NoteList from "../../components/NoteList";
 
 export default function Dashboard() {
   const { user } = useAuth();
