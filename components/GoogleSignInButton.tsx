@@ -3,5 +3,12 @@
 import { loginWithGoogle } from "@/services/authService";
 
 export default function GoogleSignInButton() {
-  return <button onClick={loginWithGoogle}>Sign in with Google</button>;
+  const usingEmulators =
+    process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATORS === "true";
+
+  return (
+    <button onClick={loginWithGoogle}>
+      {usingEmulators ? "Sign in (dev)" : "Sign in with Google"}
+    </button>
+  );
 }

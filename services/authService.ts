@@ -1,7 +1,16 @@
 import { auth, provider } from "@/lib/firebase";
-import { signInWithPopup, signOut, onAuthStateChanged, User } from "firebase/auth";
+import {
+  signInWithPopup,
+  signInAnonymously,
+  signOut,
+  onAuthStateChanged,
+  User,
+} from "firebase/auth";
 
 export const loginWithGoogle = async () => {
+  if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATORS === "true") {
+    return signInAnonymously(auth);
+  }
   return signInWithPopup(auth, provider);
 };
 
