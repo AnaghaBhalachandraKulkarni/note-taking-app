@@ -1,12 +1,11 @@
 "use client";
 
-import GoogleSignInButton from "../../components/GoogleSignInButton";
+import AuthForm from "../../components/AuthForm";
 
 export default function AuthPage() {
   return (
     <div>
-      <h1>Login</h1>
-      <GoogleSignInButton />
+      <AuthForm />
     </div>
   );
 }

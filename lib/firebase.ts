@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, connectAuthEmulator } from "firebase/auth";
+import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -11,7 +11,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-export const provider = new GoogleAuthProvider();
 export const db = getFirestore(app);
 
 if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATORS === "true") {

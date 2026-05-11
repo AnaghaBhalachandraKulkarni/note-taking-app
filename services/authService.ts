@@ -1,17 +1,23 @@
-import { auth, provider } from "../lib/firebase";
+import { auth } from "../lib/firebase";
 import {
-  signInWithPopup,
-  signInAnonymously,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   signOut,
   onAuthStateChanged,
   User,
 } from "firebase/auth";
 
-export const loginWithGoogle = async () => {
-  if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATORS === "true") {
-    return signInAnonymously(auth);
-  }
-  return signInWithPopup(auth, provider);
+export const signUpWithEmail = async (email: string, password: string) => {
+  return createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const signInWithEmail = async (email: string, password: string) => {
+  return signInWithEmailAndPassword(auth, email, password);
+};
+
+export const resetPassword = async (email: string) => {
+  return sendPasswordResetEmail(auth, email);
 };
 
 export const logout = async () => {

@@ -3,13 +3,13 @@
 A production-ready cloud-based note-taking application built with Next.js (App Router, TypeScript) and Firebase (Auth + Firestore).
 
 ## Features
-- Google Authentication
+- Email/password Authentication
 - Real-time Firestore notes (CRUD)
 - Scalable, modular architecture
 
 ## Setup
 1. Create a Firebase project (console) and enable:
-   - Authentication → Sign-in method → **Google**
+   - Authentication → Sign-in method → **Email/Password**
    - Firestore Database
 2. Copy `.env.example` to `.env` and fill in your Firebase web app config values.
 3. Install dependencies: `npm install`
